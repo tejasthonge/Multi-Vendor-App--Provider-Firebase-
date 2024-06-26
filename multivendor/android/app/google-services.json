@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "536573147244",
+    "project_id": "multi-vendor-stroe",
+    "storage_bucket": "multi-vendor-stroe.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:536573147244:android:a7ae5c325938983fce8049",
+        "android_client_info": {
+          "package_name": "com.example.multivendor"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD96INjImql7Re3RnW68Id3512WV5ZPbKI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
