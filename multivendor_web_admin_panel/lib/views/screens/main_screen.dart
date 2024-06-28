@@ -85,8 +85,47 @@ class _MainScreenState extends State<MainScreen> {
           selectedRoute: '',
           onSelected: (item){
             getSellectedScreen(item);
-          }),
+          },
+          header: Container( 
+            height: 50,
+            width: double.infinity,
+            alignment: Alignment.center,
+            color:const Color(0xff444444),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text("Amarraj Caffe",
+                  style: TextStyle( 
+                    color:Colors.white,
+                    fontWeight: FontWeight.bold
+                  ),
+                ),
+                Text("admin pannel",
+                  style: TextStyle( 
+                    color:const Color.fromARGB(255, 218, 182, 151),
 
+                  ),
+                ),
+              ],
+            ),
+          ),
+          footer: Container( 
+            height: 50,
+            alignment: Alignment.center,
+            color:const Color(0xff444444),
+            width: double.infinity,
+            child:  Text("www.tejasthonge.tech",
+                  style: TextStyle( 
+                    fontSize:10,
+                    color:Colors.white,
+
+                  ),
+                ),
+          ),
+          
+          ),
+          
       
         body:_sellectedScreen );
   }
