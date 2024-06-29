@@ -27,7 +27,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
 
   _peackImage() async {
     FilePickerResult? result = await FilePicker.platform
-        .pickFiles(allowCompression: true,
+        .pickFiles(
           allowMultiple: false, type: FileType.image);
     if (result != null) {
       setState(() {
@@ -103,10 +103,13 @@ class _CategoryScreenState extends State<CategoryScreen> {
                             border: Border.all(color: Colors.grey.shade900),
                             borderRadius: BorderRadius.circular(10)),
                         child: _image != null
-                            ? Image.memory(
-                                _image,
-                                fit: BoxFit.cover,
-                              )
+                            ? ClipRRect(
+                              borderRadius: BorderRadius.circular(10),
+                              child: Image.memory(
+                                  _image,
+                                  fit: BoxFit.cover,
+                                ),
+                            )
                             : const Center(
                                 child: Text(
                                 "Category",
@@ -166,7 +169,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
                 ],
               ),
             ),
-            Divider( color: Colors.grey,),
+           const Divider( color: Colors.grey,),
             Container( 
               padding: EdgeInsets.symmetric(horizontal: 15,vertical: 10),
               width:double.infinity,

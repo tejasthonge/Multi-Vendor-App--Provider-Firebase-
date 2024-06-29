@@ -5,21 +5,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 
-class CategoryWidget extends StatefulWidget {
-  const CategoryWidget({super.key});
+class BannerWidget extends StatefulWidget {
+  const BannerWidget({super.key});
 
   @override
-  State<CategoryWidget> createState() => _CategoryWidgetState();
+  State<BannerWidget> createState() => _BannerWidgetState();
 }
 
-class _CategoryWidgetState extends State<CategoryWidget> {
-final Stream<QuerySnapshot> _categoryStream = FirebaseFirestore.instance.collection('Category').snapshots();
+class _BannerWidgetState extends State<BannerWidget> {
+final Stream<QuerySnapshot> _bannerStream = FirebaseFirestore.instance.collection('Banners').snapshots();
 
   @override
   Widget build(BuildContext context) {
     
     return StreamBuilder<QuerySnapshot>(  //for this go to https://firebase.flutter.dev/docs/firestore/usage
-      stream: _categoryStream,
+      stream: _bannerStream,
       builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
         if (snapshot.hasError) {
           return  Text('Something went wrong');
@@ -39,31 +39,30 @@ final Stream<QuerySnapshot> _categoryStream = FirebaseFirestore.instance.collect
             crossAxisCount: 6,mainAxisSpacing: 8,crossAxisSpacing: 8), 
           itemCount: snapshot.data!.size,
         itemBuilder: (context,index){
-          final categoryData = snapshot.data!.docs[index];
+          final bannerData = snapshot.data!.docs[index];
 
           return Column( 
             children: [ 
               Container(
-                height: 100,
-                width: 100,
-                 decoration: BoxDecoration( 
+                width: 150,
+                height: 70,
+                decoration: BoxDecoration( 
                   border: Border.all(color: Colors.grey.shade300)
                 ),
                 child: Image.network(
-                  categoryData['image'],
+                  bannerData['image'],
                   fit: BoxFit.cover,
                 ),
               ),
-              const SizedBox(height: 10,),
-              Flexible(
-                child: Text(
-                  categoryData['categoryName'],
-                  style: TextStyle( 
-                    // fontSize: 18,
-                    fontWeight: FontWeight.w800
-                  ),
-                ),
-              )
+              // Flexible(
+              //   child: Text(
+              //     categoryData['categoryName'],
+              //     style: TextStyle( 
+              //       // fontSize: 18,
+              //       fontWeight: FontWeight.w800
+              //     ),
+              //   ),
+              // )
             ],
           );
         });

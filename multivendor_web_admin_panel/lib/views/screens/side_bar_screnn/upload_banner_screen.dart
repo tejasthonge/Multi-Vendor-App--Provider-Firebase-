@@ -4,6 +4,7 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:multivendor_web_admin_panel/views/screens/side_bar_screnn/widgets/banner_widget.dart';
 
 class UploadBannerSceen extends StatefulWidget {
   const UploadBannerSceen({super.key});
@@ -140,9 +141,17 @@ class _UploadBannerSceenState extends State<UploadBannerSceen> {
               ],
             ),
           ),
-          Divider( 
-            color: Colors.grey,
-          )
+          const Divider( color: Colors.grey,),
+            Container( 
+              padding:const EdgeInsets.symmetric(horizontal: 15,vertical: 10),
+              width:double.infinity,
+              alignment: Alignment.centerLeft,
+              child: const Text(
+                "Banners",
+                style: TextStyle(fontSize: 36, fontWeight: FontWeight.w700),
+              ),),
+
+              const BannerWidget()
         ],
       ),
     ));
