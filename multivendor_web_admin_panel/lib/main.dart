@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:multivendor_web_admin_panel/views/screens/main_screen.dart';
 
 void main() async {
@@ -26,6 +27,10 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(home: MainScreen());
+
+    return  MaterialApp(
+      home: const MainScreen(),
+      builder: EasyLoading.init(),
+      );
   }
 }

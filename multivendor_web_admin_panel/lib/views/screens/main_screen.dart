@@ -1,6 +1,5 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_admin_scaffold/admin_scaffold.dart';
 import 'package:multivendor_web_admin_panel/views/screens/side_bar_screnn/category_screen.dart';
@@ -20,7 +19,7 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
 
-   Widget _sellectedScreen = DashboardScreen();
+   Widget _sellectedScreen = const DashboardScreen();
 
 
 
@@ -28,37 +27,37 @@ class _MainScreenState extends State<MainScreen> {
     switch (item.route) {
       case CategoryScreen.routeName:
         setState(() {
-         _sellectedScreen= CategoryScreen();
+         _sellectedScreen=const  CategoryScreen();
         });
         break;
         case VendorsScreen.routeName:
           setState(() {
-            _sellectedScreen =VendorsScreen();
+            _sellectedScreen =const VendorsScreen();
           });
         break;
         case OrdersScreen.routeName:
           setState(() {
-            _sellectedScreen =OrdersScreen();
+            _sellectedScreen =const OrdersScreen();
           });
         break;
         case ProductScreen.routeName:
           setState(() {
-            _sellectedScreen =ProductScreen();
+            _sellectedScreen =const ProductScreen();
           });
         break;
         case UploadBannerSceen.routeName:
           setState(() {
-            _sellectedScreen =UploadBannerSceen();
+            _sellectedScreen =const UploadBannerSceen();
           });
         break;
         case WithdralSceen.routeName:
           setState(() {
-            _sellectedScreen =WithdralSceen();
+            _sellectedScreen =const WithdralSceen();
           });
         break;
       default:
         setState(() {
-          _sellectedScreen =DashboardScreen();
+          _sellectedScreen =const DashboardScreen();
         });
     }
 
@@ -91,7 +90,7 @@ class _MainScreenState extends State<MainScreen> {
             width: double.infinity,
             alignment: Alignment.center,
             color:const Color(0xff444444),
-            child: Column(
+            child: const Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -103,7 +102,7 @@ class _MainScreenState extends State<MainScreen> {
                 ),
                 Text("admin pannel",
                   style: TextStyle( 
-                    color:const Color.fromARGB(255, 218, 182, 151),
+                    color: Color.fromARGB(255, 218, 182, 151),
 
                   ),
                 ),
@@ -115,7 +114,7 @@ class _MainScreenState extends State<MainScreen> {
             alignment: Alignment.center,
             color:const Color(0xff444444),
             width: double.infinity,
-            child:  Text("www.tejasthonge.tech",
+            child:  const Text("www.tejasthonge.tech",
                   style: TextStyle( 
                     fontSize:10,
                     color:Colors.white,

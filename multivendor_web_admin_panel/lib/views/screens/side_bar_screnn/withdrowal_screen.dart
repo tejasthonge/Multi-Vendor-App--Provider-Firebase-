@@ -12,9 +12,9 @@ class WithdralSceen extends StatelessWidget {
     return SingleChildScrollView(
       
       child: Container(
-        padding: EdgeInsets.all(9),
+        padding: const EdgeInsets.all(9),
         alignment: Alignment.topLeft,
-        child: Text("Withdroal"),
+        child: const Text("Withdroal"),
       ));
   }
 }
