@@ -7,6 +7,8 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:multivendor_web_admin_panel/views/screens/main_screen.dart';
 
 void main() async {
+  //image not displying of web due we runing web on web 
+  //to show the images run --> flutter run -d chrome --web-renderer html
   WidgetsFlutterBinding.ensureInitialized();
   Firebase.initializeApp(
       options: kIsWeb || Platform.isAndroid

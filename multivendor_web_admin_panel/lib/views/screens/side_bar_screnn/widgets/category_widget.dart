@@ -15,6 +15,7 @@ final Stream<QuerySnapshot> _categoryStream = FirebaseFirestore.instance.collect
 
   @override
   Widget build(BuildContext context) {
+    
     return StreamBuilder<QuerySnapshot>(  //for this go to https://firebase.flutter.dev/docs/firestore/usage
       stream: _categoryStream,
       builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
