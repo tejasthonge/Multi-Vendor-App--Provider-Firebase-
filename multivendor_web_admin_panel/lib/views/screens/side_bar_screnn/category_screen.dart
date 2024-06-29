@@ -5,6 +5,7 @@ import 'package:file_picker/file_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:multivendor_web_admin_panel/views/screens/side_bar_screnn/widgets/category_widget.dart';
 
 class CategoryScreen extends StatefulWidget {
   const CategoryScreen({super.key});
@@ -26,7 +27,8 @@ class _CategoryScreenState extends State<CategoryScreen> {
 
   _peackImage() async {
     FilePickerResult? result = await FilePicker.platform
-        .pickFiles(allowMultiple: false, type: FileType.image);
+        .pickFiles(allowCompression: true,
+          allowMultiple: false, type: FileType.image);
     if (result != null) {
       setState(() {
         _image = result.files.first.bytes;
@@ -79,7 +81,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
               padding: const EdgeInsets.all(9),
               alignment: Alignment.topLeft,
               child: const Text(
-                "Categoryes",
+                "Category",
                 style: TextStyle(fontSize: 36, fontWeight: FontWeight.w700),
               ),
             ),
@@ -163,7 +165,18 @@ class _CategoryScreenState extends State<CategoryScreen> {
                       ))
                 ],
               ),
-            )
+            ),
+            Divider( color: Colors.grey,),
+            Container( 
+              padding: EdgeInsets.symmetric(horizontal: 15,vertical: 10),
+              width:double.infinity,
+              alignment: Alignment.centerLeft,
+              child: Text(
+                "Categories",
+                style: TextStyle(fontSize: 36, fontWeight: FontWeight.w700),
+              ),),
+            const CategoryWidget()
+
           ],
         ),
       ),
