@@ -49,6 +49,7 @@ class _UploadBannerSceenState extends State<UploadBannerSceen> {
       String imageUrl = await _uploadImgaeToFirebaseStore(image: _image);
 
       _firestore.collection("Banners").doc(_imageName).set({"image": imageUrl}).whenComplete(() {
+         EasyLoading.showSuccess('Banner Uploadded Successfully!');
          EasyLoading.dismiss();
          setState(() {
            _image =null;
@@ -83,7 +84,7 @@ class _UploadBannerSceenState extends State<UploadBannerSceen> {
                   children: [
                     Container(
                       height: 140,
-                      width: 140,
+                      width: 340,
                       decoration: BoxDecoration(
                           color: Colors.grey.shade500,
                           border: Border.all(color: Colors.grey.shade900),
@@ -104,6 +105,7 @@ class _UploadBannerSceenState extends State<UploadBannerSceen> {
                       height: 10,
                     ),
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         ElevatedButton(
                             style: ButtonStyle(
@@ -117,7 +119,7 @@ class _UploadBannerSceenState extends State<UploadBannerSceen> {
                               style: TextStyle(color: Colors.white),
                             )),
                         const SizedBox(
-                          width: 20,
+                          width: 116,
                         ),
                         ElevatedButton(
                             style: ButtonStyle(
@@ -137,6 +139,9 @@ class _UploadBannerSceenState extends State<UploadBannerSceen> {
                 ),
               ],
             ),
+          ),
+          Divider( 
+            color: Colors.grey,
           )
         ],
       ),
