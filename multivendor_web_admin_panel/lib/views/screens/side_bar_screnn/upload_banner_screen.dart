@@ -151,7 +151,10 @@ class _UploadBannerSceenState extends State<UploadBannerSceen> {
                 style: TextStyle(fontSize: 36, fontWeight: FontWeight.w700),
               ),),
 
-              const BannerWidget()
+             const Padding(
+                padding:  EdgeInsets.all(15.0),
+                child:  BannerWidget(),
+              )
         ],
       ),
     ));
