@@ -127,6 +127,7 @@ class _RegistorScreenState extends State<RegistorScreen> {
                         Padding(
                           padding: EdgeInsets.all(13),
                           child: TextFormField(
+                            obscureText: authContoller.obscureText,
                             controller: passwordTEC,
                             validator: (value) {
                               if (value!.isEmpty) {
@@ -135,6 +136,16 @@ class _RegistorScreenState extends State<RegistorScreen> {
                             },
                             decoration: InputDecoration(
                               labelText: 'Password ',
+                              suffixIcon: GestureDetector(
+                                onTap: () => authContoller.onTapEye(),
+                                child: Icon( 
+                                  authContoller.obscureText == true?
+                                  Icons.visibility_off:
+                                  Icons.remove_red_eye,
+                                  // Icons.password
+                                  
+                                ),
+                              )
                             ),
                           ),
                         ),

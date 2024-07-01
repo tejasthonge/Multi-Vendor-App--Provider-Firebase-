@@ -11,6 +11,13 @@ import 'package:flutter/material.dart';
 class AuthController extends ChangeNotifier{
   bool _isLodding = false;
   bool get isLodding => _isLodding;
+  bool _obscureText = true;
+  bool get obscureText => _obscureText;
+  
+   onTapEye() {
+    _obscureText =!_obscureText;
+    notifyListeners();
+  }
   
   Future<String> signUpUsers({
     required String email ,
