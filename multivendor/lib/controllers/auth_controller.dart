@@ -13,6 +13,10 @@ class AuthController extends ChangeNotifier{
   bool get isLodding => _isLodding;
   bool _obscureText = true;
   bool get obscureText => _obscureText;
+  FirebaseAuth _auth = FirebaseAuth.instance;
+  FirebaseFirestore _firestore = FirebaseFirestore.instance;
+
+
   
    onTapEye() {
     _obscureText =!_obscureText;
@@ -27,8 +31,6 @@ class AuthController extends ChangeNotifier{
   })async{
     _isLodding = true;
     notifyListeners();
-    FirebaseAuth _auth = FirebaseAuth.instance;
-    FirebaseFirestore _firestore = FirebaseFirestore.instance;
     String res = '';
 
     try {
@@ -64,6 +66,42 @@ class AuthController extends ChangeNotifier{
       res = e.toString();
     }
     _isLodding = false;
+    notifyListeners();
+    return res;
+  }
+
+
+
+  //for login
+
+  Future<String> loginUser({
+    required String email,
+    required String password,
+  } )async{
+
+    _isLodding = true;
+    notifyListeners();
+    String res = '';
+
+    try{
+      if(email.isNotEmpty && password.isNotEmpty){
+        UserCredential cread = await _auth.signInWithEmailAndPassword(
+          email: email,
+          password: password,
+        );
+        res = 'Login Successfull';
+      }
+      else{
+        res = "This field is required and cannot be empty";
+      }
+
+    } on FirebaseAuthException catch (e){
+      res = e.code;
+    }
+    catch (e){
+      res = e.toString();
+    }
+    _isLodding = false; 
     notifyListeners();
     return res;
   }

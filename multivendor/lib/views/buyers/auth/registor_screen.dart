@@ -133,6 +133,7 @@ class _RegistorScreenState extends State<RegistorScreen> {
                               if (value!.isEmpty) {
                                 return 'Please enter Password';
                               }
+                              return null;
                             },
                             decoration: InputDecoration(
                               labelText: 'Password ',
