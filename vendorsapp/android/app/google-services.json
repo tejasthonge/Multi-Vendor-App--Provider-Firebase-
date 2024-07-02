@@ -1,0 +1,98 @@
+{
+  "project_info": {
+    "project_number": "536573147244",
+    "project_id": "multi-vendor-stroe",
+    "storage_bucket": "multi-vendor-stroe.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:536573147244:android:a7ae5c325938983fce8049",
+        "android_client_info": {
+          "package_name": "com.example.multivendor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "536573147244-sjsjfc2ao8p7pem82odc7m74a6b7rubk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.multivendor",
+            "certificate_hash": "a59f7039a9c897ac03633dc7d8da91b5f3b4063f"
+          }
+        },
+        {
+          "client_id": "536573147244-n88t0nn2u5mavrhmv82epno5b8llhm1j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD96INjImql7Re3RnW68Id3512WV5ZPbKI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "536573147244-n88t0nn2u5mavrhmv82epno5b8llhm1j.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "536573147244-03abrj0jddv0ic81lqs96islitkib4co.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.multivendor"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:536573147244:android:7cdc2321120bb36ece8049",
+        "android_client_info": {
+          "package_name": "com.example.vendorsapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "536573147244-kt67481ej1nsvvbahrs72953p69pud20.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.vendorsapp",
+            "certificate_hash": "a59f7039a9c897ac03633dc7d8da91b5f3b4063f"
+          }
+        },
+        {
+          "client_id": "536573147244-n88t0nn2u5mavrhmv82epno5b8llhm1j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD96INjImql7Re3RnW68Id3512WV5ZPbKI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "536573147244-n88t0nn2u5mavrhmv82epno5b8llhm1j.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "536573147244-03abrj0jddv0ic81lqs96islitkib4co.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.multivendor"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
