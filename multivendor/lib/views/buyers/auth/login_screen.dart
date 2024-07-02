@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:multivendor/controllers/auth_controller.dart';
 import 'package:multivendor/utils/utils.dart';
 import 'package:multivendor/views/buyers/auth/registor_screen.dart';
