@@ -41,8 +41,8 @@ class _RegistorScreenState extends State<RegistorScreen> {
     required String password,
   }) async {
     String res = "Enter all the information";
-    if (_formKey.currentState!.validate() ) {
-      res = await authController 
+    if (_formKey.currentState!.validate() && _image != null) {
+        res = await authController 
           .signUpUsers(
         email: email,
         fullName: fullName,
@@ -56,12 +56,20 @@ class _RegistorScreenState extends State<RegistorScreen> {
           fullNameTEC.text = '';
           phonNoTEC.text = '';
           passwordTEC.text = '';
-          // _formKey.currentState!.reset();
         });
       });
     }
+    else if(_image ==null) {
+      showMySnakBar(context: context, message: "Please select Profile image");
+    }
+
 
     showMySnakBar(context: context, message: res);
+    if(res== 'User Created Successfully!'){
+      Navigator.of(context, ).push(
+        MaterialPageRoute(builder: (_)=>LoginScreen()),
+      );
+    }
   }
 
   selectGallaryImage({required BuildContext context,})async{
@@ -92,9 +100,10 @@ class _RegistorScreenState extends State<RegistorScreen> {
                   height: 40,
                 ),
                 Text(
-                  "Create Coustormes Account",
+                  "Create Customers Account",
                   style: TextStyle(fontSize: 20),
                 ),
+                const SizedBox(height: 20,),
                 GestureDetector(
                   onTap: () {
                     showBottomSheet(
@@ -171,8 +180,8 @@ class _RegistorScreenState extends State<RegistorScreen> {
                   Stack(
                     children: [
                       CircleAvatar(
-                        radius: 64,
-                        backgroundColor: Colors.yellow.shade900,
+                        radius: 56,
+                        backgroundColor: Color.fromARGB(137, 219, 202, 202),
                         child: Icon(
                           Icons.person,
                           color: Colors.white,
@@ -180,8 +189,8 @@ class _RegistorScreenState extends State<RegistorScreen> {
                         ),
                       ),
                       Positioned(
-                        top: 90,
-                        left: 100,
+                        top: 77,
+                        left: 80,
                         child: Icon(
                           Icons.add_a_photo,
                         ),
@@ -194,8 +203,8 @@ class _RegistorScreenState extends State<RegistorScreen> {
                       borderRadius: BorderRadius.circular(70),
                       border: Border.all(color: Colors.blue)
                     ),
-                    height: 128,
-                    width: 128,
+                    height: 120,
+                    width: 120,
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(70),
                       child: Image.memory(
@@ -279,12 +288,18 @@ class _RegistorScreenState extends State<RegistorScreen> {
                       ),
                       GestureDetector(
                         onTap: () {
-                          _singUpUser(context,
+                          if( authContoller.isLodding == false ){
+                            _singUpUser(context,
                               authController: authContoller,
                               email: emailTEC.text.trim(),
                               fullName: fullNameTEC.text.trim(),
                               phoneNo: phonNoTEC.text.trim(),
                               password: passwordTEC.text.trim());
+
+                          }
+
+
+                          
                         },
                         child: Container(
                           margin: EdgeInsets.only(top: 20),

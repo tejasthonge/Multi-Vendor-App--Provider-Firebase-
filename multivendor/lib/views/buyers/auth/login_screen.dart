@@ -4,7 +4,6 @@ import 'package:multivendor/controllers/auth_controller.dart';
 import 'package:multivendor/utils/utils.dart';
 import 'package:multivendor/views/buyers/auth/registor_screen.dart';
 import 'package:multivendor/views/buyers/main_screen.dart';
-import 'package:multivendor/views/buyers/nav_screens/home_screen.dart';
 import 'package:provider/provider.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -61,7 +60,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   height: 40,
                 ),
                 Text(
-                  "Login Coustormes Account",
+                  "Login Customers Account",
                   style: TextStyle(fontSize: 20),
                 ),
                 Form(
@@ -110,10 +109,14 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 GestureDetector(
                   onTap: () {
-                    _loginUser(
+                    if( authContoller.isLodding == false){
+                       _loginUser(
                         email: _emailTEC.text.trim(),
                         password: _passwordTEC.text.trim(),
                         authController: authContoller);
+
+                    }
+                   
                   },
                   child: Container(
                       margin: EdgeInsets.only(top: 20),

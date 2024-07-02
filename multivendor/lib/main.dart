@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:multivendor/controllers/auth_controller.dart';
 import 'package:multivendor/firebase_options.dart';
 import 'package:multivendor/views/buyers/auth/registor_screen.dart';
-import 'package:multivendor/views/buyers/main_screen.dart';
 import 'package:provider/provider.dart';
 
 void main()async {
