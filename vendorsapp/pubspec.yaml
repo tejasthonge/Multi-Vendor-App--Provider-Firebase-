@@ -42,6 +42,8 @@ dependencies:
   firebase_ui_auth: ^1.15.0
   country_state_city_picker: ^1.2.8
   image_picker: ^1.1.2
+  provider: ^6.1.2
+  flutter_easyloading: ^3.0.5
 
 dev_dependencies:
   flutter_test:

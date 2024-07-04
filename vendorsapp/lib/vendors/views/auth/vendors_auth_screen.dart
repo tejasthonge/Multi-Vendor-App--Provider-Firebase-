@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart' hide EmailAuthProvider ;
 
 import 'package:firebase_ui_auth/firebase_ui_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:vendorsapp/vendors/views/auth/vendor_resiteration.dart';
+import 'package:vendorsapp/vendors/views/auth/vendor_resiteration_screen.dart';
 
 class VendorAuthScreen extends StatefulWidget {
   const VendorAuthScreen({super.key});
