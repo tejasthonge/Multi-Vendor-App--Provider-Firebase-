@@ -82,10 +82,10 @@ String res ='All fileds must be filled ';
            _emailTEC.clear();
            _phoneTEC.clear();
            _taxNoTEC.clear();
-           _cityValue = '';
-           _stateValue = '';
-           _countryValue = '';
-           _selecteTaxOption = null;
+          //  _cityValue = '';
+          //  _stateValue = '';
+          //  _countryValue = '';
+          //  _selecteTaxOption = null;
            setState(() {
              
            });

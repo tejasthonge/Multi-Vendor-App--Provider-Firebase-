@@ -87,6 +87,7 @@ class VendorResigistrationController extends ChangeNotifier {
             "taxOption":selecteTaxOption,
             "taxNo" : taxNo,
             "approved":false,
+            "venorId" :_auth.currentUser!.uid,
             "image" : imgUrl,
 
           }
