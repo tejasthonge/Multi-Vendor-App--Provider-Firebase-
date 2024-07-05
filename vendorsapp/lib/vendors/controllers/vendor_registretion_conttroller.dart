@@ -1,5 +1,10 @@
-import 'dart:typed_data';
 
+
+
+
+
+
+import 'dart:developer';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -7,6 +12,7 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:vendorsapp/vendors/models/vendors_user_model.dart';
 
 class VendorResigistrationController extends ChangeNotifier {
 
@@ -60,44 +66,34 @@ class VendorResigistrationController extends ChangeNotifier {
     String res = "some error occurred";
 
     try {
-      // if (businessName.isNotEmpty &&
-      //     phone.isNotEmpty &&
-      //     email.isNotEmpty &&
-      //     city.isNotEmpty &&
-      //     state.isNotEmpty &&
-      //     city.isNotEmpty &&
-      //     selecteTaxOption.isNotEmpty&&
-      //     taxNo.isNotEmpty
-          
 
-      //     // image!= null
-      //     ) {
-          
         //save Data in firebasefirestor
         String imgUrl =await _uploadVendorImage(image: image!);
-
-        await _firestore.collection("User_Vendors").doc(_auth.currentUser!.uid).set(
-          {
-            "businessName" : businessName,
-            "phone" : phone,
-            "email" : email,
-            "city" : city,
-            "state" : state,
-            "country" : country,
-            "taxOption":selecteTaxOption,
-            "taxNo" : taxNo,
-            "approved":false,
-            "venorId" :_auth.currentUser!.uid,
-            "image" : imgUrl,
-
-          }
+        
+        VendorsUserModel obj = VendorsUserModel( 
+          approved: false,
+          vendorId:_auth.currentUser!.uid,
+          businessName: businessName,
+          phoneNumber: phone,
+          email: email,
+          storeImage: imgUrl,
+          stateValue: state,
+          cityValue: city,
+          countryValue: country,
+          takNumber: taxNo,
+          takRegistored: selecteTaxOption,
+          
         );
-      // } else {
+        await _firestore.collection("User_Vendors").doc(_auth.currentUser!.uid).set(
+          obj.toJson(),
+        );
+
         res = "plese enter all the field";
-      // }
-    } catch (e) {
+
+    }on FirebaseFirestore catch (e) {
      res = e.toString();
     }
+
     _isLodding = false;
     notifyListeners();
     return res;

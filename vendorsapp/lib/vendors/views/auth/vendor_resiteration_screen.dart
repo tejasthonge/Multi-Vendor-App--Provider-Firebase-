@@ -61,43 +61,50 @@ class _VendorResigistrationScreenState
     "NO",
   ];
 
-  _addVendndorsDatat({required VendorResigistrationController vendorResigistrationController }) async {
-String res ='All fileds must be filled ';
-  EasyLoading.show();
-    if(_formKey.currentState!.validate() && _image != null ){
-     res= await vendorResigistrationController.registedVendroData(
-        context: context,
-        businessName: _businessNameTEC.text.trim(),
-        phone: _phoneTEC.text.trim(),
-        email: _emailTEC.text.trim(),
-        taxNo: _taxNoTEC.text.trim(),
-        city: _cityValue,
-        state: _stateValue,
-        country: _countryValue,
-        selecteTaxOption: _selecteTaxOption!,
-        image: _image).whenComplete(() {
-           EasyLoading.showSuccess("Vendors Data registered successfully!");
-           _image = null;
-           _businessNameTEC.clear();
-           _emailTEC.clear();
-           _phoneTEC.clear();
-           _taxNoTEC.clear();
-          //  _cityValue = '';
-          //  _stateValue = '';
-          //  _countryValue = '';
-          //  _selecteTaxOption = null;
-           setState(() {
-             
-           });
-        });
-       
+  _addVendndorsDatat(
+      {required VendorResigistrationController
+          vendorResigistrationController}) async {
+    String res = 'All fileds must be filled ';
+    EasyLoading.show();
 
-    }else{
-      EasyLoading.showError("Something is wrong");
+    if (_formKey.currentState!.validate() &&
+        _image != null &&
+        _selecteTaxOption != null &&
+        _stateValue != '' &&
+        _countryValue != '' &&
+        _cityValue != '') {
+      log("ram ram ram ram ram ram");
+      res = await vendorResigistrationController
+          .registedVendroData(
+              context: context,
+              businessName: _businessNameTEC.text.trim(),
+              phone: _phoneTEC.text.trim(),
+              email: _emailTEC.text.trim(),
+              taxNo: _taxNoTEC.text.trim(),
+              city: _cityValue,
+              state: _stateValue,
+              country: _countryValue,
+              selecteTaxOption: _selecteTaxOption!,
+              image: _image)
+          .whenComplete(() {
+        EasyLoading.showSuccess("Vendors Data registered successfully!");
+        _image = null;
+        _businessNameTEC.clear();
+        _emailTEC.clear();
+        _phoneTEC.clear();
+        _taxNoTEC.clear();
+
+        setState(() {});
+      });
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(res))
+      );
+      EasyLoading.dismiss();
     }
-    EasyLoading.dismiss();
-   
-  log(res);
+    // EasyLoading.dismiss();
+
+    log(res);
   }
 
   @override
@@ -162,12 +169,11 @@ String res ='All fileds must be filled ';
                         decoration: const InputDecoration(
                           labelText: "Business Name",
                         ),
-                        validator: (value){
+                        validator: (value) {
                           if (value!.isEmpty) {
                             return 'Please enter Business Name';
                           }
                           return null;
-
                         },
                       ),
                       const SizedBox(
@@ -180,7 +186,7 @@ String res ='All fileds must be filled ';
                           labelText: "Email Address",
                         ),
                         validator: (value) {
-                          if(value!.isEmpty){
+                          if (value!.isEmpty) {
                             return 'Please enter Email Address';
                           }
                           return null;
@@ -190,17 +196,17 @@ String res ='All fileds must be filled ';
                         height: 10,
                       ),
                       TextFormField(
-                        controller: _phoneTEC,
-                        keyboardType: TextInputType.phone,
-                        decoration: const InputDecoration(
-                          labelText: "Phone Number",
-                        ),
-                        validator: (value){
-                          if (value!.isEmpty) {
-                            return 'Please enter phone no';
-                          }
-                          return null;}
-                      ),
+                          controller: _phoneTEC,
+                          keyboardType: TextInputType.phone,
+                          decoration: const InputDecoration(
+                            labelText: "Phone Number",
+                          ),
+                          validator: (value) {
+                            if (value!.isEmpty) {
+                              return 'Please enter phone no';
+                            }
+                            return null;
+                          }),
                       const SizedBox(
                         height: 10,
                       ),
@@ -256,19 +262,21 @@ String res ='All fileds must be filled ';
                               decoration: InputDecoration(
                                 labelText: "Tax Number",
                               ),
-                              validator: (value){
-                          if (value!.isEmpty) {
-                            return 'Please enter Please enter a tax number';
-                          }
-                          return null;}
-                            )
+                              validator: (value) {
+                                if (value!.isEmpty) {
+                                  return 'Please enter Please enter a tax number';
+                                }
+                                return null;
+                              })
                           : const SizedBox(),
                       const SizedBox(
                         height: 20,
                       ),
                       InkWell(
                         onTap: () {
-                          _addVendndorsDatat(vendorResigistrationController: vendorResigistrationController);
+                          _addVendndorsDatat(
+                              vendorResigistrationController:
+                                  vendorResigistrationController);
                         },
                         child: Container(
                           height: 40,
