@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:multivendor_web_admin_panel/views/screens/side_bar_screnn/utils/utils.dart';
+import 'package:multivendor_web_admin_panel/views/screens/side_bar_screnn/widgets/vendor_widget.dart';
 
 class VendorsScreen extends StatelessWidget {
   const VendorsScreen({super.key});
@@ -33,7 +34,8 @@ class VendorsScreen extends StatelessWidget {
               buildRowHeador(flex: 1,text: "ACTION"),
               buildRowHeador(flex: 1,text: "VIEW MORE"),
             ],
-          )
+          ),
+          const VendrorWidget()
         ],
       ));
   }
