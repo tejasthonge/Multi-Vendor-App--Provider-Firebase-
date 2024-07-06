@@ -30,10 +30,7 @@ class CartScreen extends StatelessWidget {
 
                  GestureDetector(
                         onTap: () {
-                         Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (_)=>MainScreen()), (route) => false);
-
-
-                          
+                         Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (_)=>MainScreen()), (route) => false);                          
                         },
                         child: Container(
                           margin: EdgeInsets.only(top: 20),

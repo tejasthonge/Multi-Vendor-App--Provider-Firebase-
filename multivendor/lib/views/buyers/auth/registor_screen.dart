@@ -8,14 +8,14 @@ import 'package:multivendor/utils/utils.dart';
 import 'package:multivendor/views/buyers/auth/login_screen.dart';
 import 'package:provider/provider.dart';
 
-class RegistorScreen extends StatefulWidget {
-  RegistorScreen({super.key});
+class BuyersRegistorScreen extends StatefulWidget {
+  BuyersRegistorScreen({super.key});
 
   @override
-  State<RegistorScreen> createState() => _RegistorScreenState();
+  State<BuyersRegistorScreen> createState() => _BuyersRegistorScreenState();
 }
 
-class _RegistorScreenState extends State<RegistorScreen> {
+class _BuyersRegistorScreenState extends State<BuyersRegistorScreen> {
   GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   final AuthController _authController =  AuthController();

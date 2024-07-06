@@ -1,7 +1,11 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:multivendor/controllers/auth_controller.dart';
 import 'package:multivendor/firebase_options.dart';
+import 'package:multivendor/vendors/controllers/vendor_registretion_conttroller.dart';
+import 'package:multivendor/vendors/views/auth/vendors_auth_screen.dart';
+import 'package:multivendor/vendors/views/screens/main_vendors_screen.dart';
 import 'package:multivendor/views/buyers/auth/registor_screen.dart';
 import 'package:provider/provider.dart';
 
@@ -20,14 +24,21 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(
           create: (_) => AuthController(),
+
         ),
+        ChangeNotifierProvider(
+           create: (_) =>VendorResigistrationController()
+        )
       ],
       child: MaterialApp(
         title: 'Muti Vendor Shopping App',
         theme: ThemeData( 
           fontFamily:'Brand-Bold'
         ),
-        home:  RegistorScreen(),
+        builder: EasyLoading.init(),
+        // home:  BuyersRegistorScreen(),
+        // home: VendorAuthScreen(),
+        home: MainVendorScreen(),
         
       ),
     );

@@ -150,7 +150,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     TextButton(
                         onPressed: () {
                           Navigator.of(context).push(MaterialPageRoute(
-                              builder: (_) => RegistorScreen()));
+                              builder: (_) => BuyersRegistorScreen()));
                         },
                         child: Text(
                           "Resitor",
