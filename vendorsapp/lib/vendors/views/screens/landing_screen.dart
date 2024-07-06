@@ -32,7 +32,7 @@ class LandingScreen extends StatelessWidget {
             return const Text("Loading");
           }
           if(!snapshot.data!.exists){  //################################
-            return VendorResigistrationScreen();
+            return const VendorResigistrationScreen();
           }
 
           VendorsUserModel vendorsUserModel = VendorsUserModel.fromJson(
