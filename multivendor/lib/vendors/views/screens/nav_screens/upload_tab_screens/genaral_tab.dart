@@ -23,6 +23,7 @@ class _GeneralTabState extends State<GeneralTab> {
   final TextEditingController _productDiscriptionTEC = TextEditingController();
 
    List<String> _productCategoryList = <String>[];
+   DateTime? sheduledDate;
 
    FirebaseFirestore _firebaseFirestore = FirebaseFirestore.instance;
 
@@ -57,6 +58,7 @@ class _GeneralTabState extends State<GeneralTab> {
         child: Form(
           key: _formKey,
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               TextFormField(
                 controller: _productNameTEC,
@@ -123,14 +125,39 @@ class _GeneralTabState extends State<GeneralTab> {
                 controller: _productDiscriptionTEC,
                 keyboardType: TextInputType.text,
                 maxLines: 4,
+                maxLength: 800,
+                
                 decoration:
-                    InputDecoration(labelText: "Enter product Discreption"),
+                    InputDecoration(
+                      border: OutlineInputBorder( 
+                        borderRadius: BorderRadius.circular(10)
+                      ),
+                      labelText: "Enter product Discreption"),
                 validator: (value) {
                   if (value!.isEmpty) {
                     return "Please enter product Discreption";
                   }
                   return null;
                 },
+              ),
+
+              Row(
+                children: [
+                  TextButton(
+                    onPressed: ()async{
+                  
+                      
+                      sheduledDate =await showDatePicker(      
+                      context: context, firstDate: DateTime.now(), lastDate: DateTime(5000));
+                      
+                      setState(() {});
+                  },
+                   child: Text("Shedule")),
+                  sheduledDate !=null ?
+                  Text(sheduledDate.toString().substring(0,10)) :Text("")
+
+
+                ],
               ),
               GestureDetector(
                 onTap: (){
