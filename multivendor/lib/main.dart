@@ -4,9 +4,7 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:multivendor/controllers/auth_controller.dart';
 import 'package:multivendor/firebase_options.dart';
 import 'package:multivendor/vendors/controllers/vendor_registretion_conttroller.dart';
-import 'package:multivendor/vendors/views/auth/vendors_auth_screen.dart';
 import 'package:multivendor/vendors/views/screens/main_vendors_screen.dart';
-import 'package:multivendor/views/buyers/auth/registor_screen.dart';
 import 'package:provider/provider.dart';
 
 void main()async {

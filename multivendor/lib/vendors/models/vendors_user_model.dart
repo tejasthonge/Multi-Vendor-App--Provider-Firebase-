@@ -1,4 +1,4 @@
-import 'package:flutter/foundation.dart';
+
 
 class VendorsUserModel {
   final bool approved;

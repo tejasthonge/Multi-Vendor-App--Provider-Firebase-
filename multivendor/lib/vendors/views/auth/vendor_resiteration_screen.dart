@@ -4,7 +4,6 @@ import 'package:country_state_city_picker/country_state_city_picker.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:multivendor/vendors/controllers/vendor_registretion_conttroller.dart';
