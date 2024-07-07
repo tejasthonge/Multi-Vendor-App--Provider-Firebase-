@@ -9,35 +9,66 @@ class VendorUploadScreen extends StatelessWidget {
       length: 4,
       child: Scaffold( 
         appBar: AppBar( 
+          
+          elevation: 1,
+          backgroundColor: Colors.yellow.shade900,
+          foregroundColor: Colors.white,
           bottom: TabBar(
+            
+            unselectedLabelColor: Colors.white38,
+            indicatorColor: Colors.white,
+            indicatorSize: TabBarIndicatorSize.label,
+            labelColor: Colors.white,
             tabs: [ 
               Tab( 
                 child: Text( 
-                  "General"
+                  "General",
+                  style: TextStyle( 
+                    // color: Color.fromARGB(255, 255, 222, 222)
+                  ),
                 ),
               ),
               Tab( 
                 child: Text( 
-                  "Shipping"
+                  "Shipping",
+                   style: TextStyle( 
+                    // color: Colors.white
+                  ),
                 ),
               ),
               Tab( 
                 child: Text( 
-                  "Attributes"
+                  "Attributes",
+                   style: TextStyle( 
+                    // color: Colors.white
+                  ),
                 ),
               ),
               Tab( 
                 child: Text( 
-                  "Images"
+                  "Images",
+                   style: TextStyle( 
+                    // color: Colors.white
+                  ),
                 ),
               ),
               
             ],
+
+            onTap: (value) {
+              
+            },
            ),
         ),
-        body: Center(
-          child: Text('Upload screen'),
-        ),
+        body: TabBarView( 
+
+          children: [ 
+            Center(child: Text("General"),),
+            Center(child: Text("Shopping"),),
+            Center(child: Text("Attributs"),),
+            Center(child: Text("Images"),),
+          ],
+        )
       ),
     );
   }
