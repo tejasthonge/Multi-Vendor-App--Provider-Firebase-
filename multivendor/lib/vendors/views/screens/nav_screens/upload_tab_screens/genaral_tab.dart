@@ -18,7 +18,7 @@ class _GeneralTabState extends State<GeneralTab> {
 
   final TextEditingController _proquctQuantityTEC = TextEditingController();
 
-  final TextEditingController _productCategoryTEC = TextEditingController();
+  String _selectedProductCategory ='';
 
   final TextEditingController _productDiscriptionTEC = TextEditingController();
 
@@ -99,17 +99,23 @@ class _GeneralTabState extends State<GeneralTab> {
               const SizedBox(
                 height: 10,
               ),
-              TextFormField(
-                controller: _productCategoryTEC,
-                decoration:
-                    InputDecoration(labelText: "Select Product Category"),
-                validator: (value) {
-                  if (value!.isEmpty) {
-                    return "Please Select product category";
-                  }
-                  return null;
-                },
+              
+              
+              DropdownButtonFormField(
+                hint: Text("Select Product Category"),
+                items:_productCategoryList.map<DropdownMenuItem<String>>((e){
+                  return DropdownMenuItem(
+                    value: e,
+                    child: Text(e),
+                  );
+                }).toList(),
+
+              onChanged: ((value){
+                _selectedProductCategory = value! ;
+              })
+              
               ),
+
               const SizedBox(
                 height: 30,
               ),
@@ -121,7 +127,7 @@ class _GeneralTabState extends State<GeneralTab> {
                     InputDecoration(labelText: "Enter product Discreption"),
                 validator: (value) {
                   if (value!.isEmpty) {
-                    return "Please enter product Quantity";
+                    return "Please enter product Discreption";
                   }
                   return null;
                 },
