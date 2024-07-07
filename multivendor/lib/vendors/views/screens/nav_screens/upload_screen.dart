@@ -1,7 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:multivendor/vendors/views/screens/nav_screens/upload_tab_screens/attrubutes_tab.dart';
+import 'package:multivendor/vendors/views/screens/nav_screens/upload_tab_screens/genaral_tab.dart';
+import 'package:multivendor/vendors/views/screens/nav_screens/upload_tab_screens/images_tab.dart';
+import 'package:multivendor/vendors/views/screens/nav_screens/upload_tab_screens/shiping_tab.dart';
 
 class VendorUploadScreen extends StatelessWidget {
-  const VendorUploadScreen({super.key});
+   VendorUploadScreen({super.key});
+
+  List<Widget> _tabsList = <Widget>[ 
+    //bellow are screen of respective tabs
+    GeneralTab(),
+    ShippingTab(),
+    AttributesTab(),
+    ImageTab()
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -61,13 +73,7 @@ class VendorUploadScreen extends StatelessWidget {
            ),
         ),
         body: TabBarView( 
-
-          children: [ 
-            Center(child: Text("General"),),
-            Center(child: Text("Shopping"),),
-            Center(child: Text("Attributs"),),
-            Center(child: Text("Images"),),
-          ],
+          children: _tabsList
         )
       ),
     );
