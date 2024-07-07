@@ -5,6 +5,7 @@ import 'package:multivendor/controllers/auth_controller.dart';
 import 'package:multivendor/firebase_options.dart';
 import 'package:multivendor/vendors/controllers/vendor_registretion_conttroller.dart';
 import 'package:multivendor/vendors/views/screens/main_vendors_screen.dart';
+import 'package:multivendor/views/buyers/auth/registor_screen.dart';
 import 'package:provider/provider.dart';
 
 void main()async {
@@ -34,9 +35,9 @@ class MyApp extends StatelessWidget {
           fontFamily:'Brand-Bold'
         ),
         builder: EasyLoading.init(),
-        // home:  BuyersRegistorScreen(),
+        home:  BuyersRegistorScreen(),
         // home: VendorAuthScreen(),
-        home: MainVendorScreen(),
+        // home: MainVendorScreen(),
         
       ),
     );
