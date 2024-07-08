@@ -32,6 +32,7 @@ class _MainScreenState extends State<MainScreen> {
      
       body: _pages[_pageIndex],
      bottomNavigationBar: BottomNavigationBar( 
+      type: BottomNavigationBarType.fixed,
       currentIndex: _pageIndex,
       onTap: (value) {
        setState(() {
