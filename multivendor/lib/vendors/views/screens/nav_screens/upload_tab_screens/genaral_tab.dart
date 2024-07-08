@@ -1,6 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:intl/intl.dart';
+import 'package:multivendor/vendors/controllers/vendor_product_conttroller.dart';
+import 'package:provider/provider.dart';
 
 class GeneralTab extends StatefulWidget {
   const GeneralTab({super.key});
@@ -23,9 +26,16 @@ class _GeneralTabState extends State<GeneralTab> {
   final TextEditingController _productDiscriptionTEC = TextEditingController();
 
    List<String> _productCategoryList = <String>[];
-   DateTime? sheduledDate;
+   String? sheduledDate;
 
    FirebaseFirestore _firebaseFirestore = FirebaseFirestore.instance;
+
+
+  String _formateDate(date){
+
+    final formate= DateFormat('dd/MM/yyyy');
+    return formate.format(date);
+  }
 
    _getCategourys()async{
 
@@ -52,6 +62,7 @@ class _GeneralTabState extends State<GeneralTab> {
 
   @override
   Widget build(BuildContext context) {
+    VendorProductController _vendorProductController = Provider.of<VendorProductController>(context);
     return Padding(
       padding: EdgeInsets.all(15),
       child: SingleChildScrollView(
@@ -62,6 +73,9 @@ class _GeneralTabState extends State<GeneralTab> {
             children: [
               TextFormField(
                 controller: _productNameTEC,
+                onChanged: (value) {
+                  _vendorProductController.getFormData(productName: value);
+                },
                 decoration: InputDecoration(labelText: "Enter product name"),
                 validator: (value) {
                   if (value!.isEmpty) {
@@ -75,6 +89,10 @@ class _GeneralTabState extends State<GeneralTab> {
               ),
               TextFormField(
                 controller: _productPriseTEC,
+                onChanged: (value) {
+                  _vendorProductController.getFormData(productPrice: double.parse(value));
+                },
+                keyboardType: TextInputType.number,
                 decoration: InputDecoration(labelText: "Enter product Price"),
                 validator: (value) {
                   if (value!.isEmpty) {
@@ -88,6 +106,9 @@ class _GeneralTabState extends State<GeneralTab> {
               ),
               TextFormField(
                 controller: _proquctQuantityTEC,
+                onChanged: (value) {
+                  _vendorProductController.getFormData(productQuantity: int.parse(value));
+                },
                 keyboardType: TextInputType.number,
                 decoration:
                     InputDecoration(labelText: "Enter product Quantity"),
@@ -105,6 +126,8 @@ class _GeneralTabState extends State<GeneralTab> {
               
               DropdownButtonFormField(
                 hint: Text("Select Product Category"),
+
+
                 items:_productCategoryList.map<DropdownMenuItem<String>>((e){
                   return DropdownMenuItem(
                     value: e,
@@ -113,6 +136,8 @@ class _GeneralTabState extends State<GeneralTab> {
                 }).toList(),
 
               onChanged: ((value){
+                _vendorProductController.getFormData(productCategory: value);
+
                 _selectedProductCategory = value! ;
               })
               
@@ -123,6 +148,9 @@ class _GeneralTabState extends State<GeneralTab> {
               ),
               TextFormField(
                 controller: _productDiscriptionTEC,
+                onChanged: (value) {
+                  _vendorProductController.getFormData(productDescription: value); //
+                },
                 keyboardType: TextInputType.text,
                 maxLines: 4,
                 maxLength: 800,
@@ -147,21 +175,32 @@ class _GeneralTabState extends State<GeneralTab> {
                     onPressed: ()async{
                   
                       
-                      sheduledDate =await showDatePicker(      
-                      context: context, firstDate: DateTime.now(), lastDate: DateTime(5000));
+                      await showDatePicker(      
+                      context: context, firstDate: DateTime.now(), lastDate: DateTime(5000)).then((value) {
+                        sheduledDate = _formateDate(value);
+                         _vendorProductController.getFormData(productShceduleDate: _formateDate(value));
+                         
+                      });
                       
                       setState(() {});
                   },
                    child: Text("Shedule")),
                   sheduledDate !=null ?
-                  Text(sheduledDate.toString().substring(0,10)) :Text("")
+                  // Text(sheduledDate.toString().substring(0,10)) :Text("")
+                  Text(
+                    sheduledDate as String,
+                    style: TextStyle(color: Colors.red),
+                  )
+                  :
+                  Text(""),
 
 
                 ],
               ),
               GestureDetector(
                 onTap: (){
-
+                  print(_vendorProductController.productData.toString()) ;
+                  print(sheduledDate);
                 },
                 child: Container(
                   margin: EdgeInsets.only(top: 20),
