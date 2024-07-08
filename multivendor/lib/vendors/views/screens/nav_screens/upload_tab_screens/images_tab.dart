@@ -38,8 +38,7 @@ class _ImageTabState extends State<ImageTab> {
 
   @override
   Widget build(BuildContext context) {
-    VendorProductController _vendorProductController =
-        Provider.of<VendorProductController>(context);
+    VendorProductController _vendorProductController = Provider.of<VendorProductController>(context);
     return Padding(
       padding: const EdgeInsets.all(15.0),
       child: Column(

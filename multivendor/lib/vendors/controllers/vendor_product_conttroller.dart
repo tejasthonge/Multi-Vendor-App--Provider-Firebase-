@@ -19,7 +19,9 @@ class VendorProductController extends ChangeNotifier{
     String? productCategory,
     String? productDescription,
     String? productShceduleDate,
-    List<String>? imagUrlList 
+    List<String>? imagUrlList ,
+    bool? chargeShipping,
+    double? shippongCharge,
   }){
 
 
@@ -43,6 +45,12 @@ class VendorProductController extends ChangeNotifier{
     }
     if(imagUrlList!=null){
       productData["imagUrlList"] =imagUrlList;
+    }
+    if (chargeShipping !=null) {
+      productData["chargeShipping"] =chargeShipping;
+    }
+    if (shippongCharge!=null) {
+      productData["shippongCharge"] =shippongCharge;
     }
     notifyListeners();
   }
