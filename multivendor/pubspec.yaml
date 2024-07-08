@@ -47,6 +47,7 @@ dependencies:
   country_state_city_picker: ^1.2.8
   firebase_ui_auth: ^1.15.0
   intl: ^0.18.1
+  uuid: ^4.4.0
 
 
 dev_dependencies:

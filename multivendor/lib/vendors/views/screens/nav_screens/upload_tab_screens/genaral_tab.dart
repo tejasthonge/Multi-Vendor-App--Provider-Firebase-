@@ -197,38 +197,7 @@ class _GeneralTabState extends State<GeneralTab> {
 
                 ],
               ),
-              GestureDetector(
-                onTap: (){
-                  print(_vendorProductController.productData.toString()) ;
-                  print(sheduledDate);
-                },
-                child: Container(
-                  margin: EdgeInsets.only(top: 20),
-                  alignment: Alignment.center,
-                  width: MediaQuery.of(context).size.width - 30,
-                  height: 40,
-                  decoration: BoxDecoration(
-                      color: Colors.yellow.shade900,
-                      borderRadius: BorderRadius.circular(6)),
-                  child: true
-                      ? Text(
-                          "Save product",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 20,
-                              letterSpacing: 2,
-                              fontWeight: FontWeight.bold),
-                        )
-                      : Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Center(
-                            child: CircularProgressIndicator(
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                ),
-              ),
+             
             ],
           ),
         ),

@@ -19,6 +19,7 @@ class VendorProductController extends ChangeNotifier{
     String? productCategory,
     String? productDescription,
     String? productShceduleDate,
+    List<String>? imagUrlList 
   }){
 
 
@@ -39,6 +40,9 @@ class VendorProductController extends ChangeNotifier{
     }
     if(productShceduleDate!=null){
       productData["productShceduleDate"] =productShceduleDate;
+    }
+    if(imagUrlList!=null){
+      productData["imagUrlList"] =imagUrlList;
     }
     notifyListeners();
   }
