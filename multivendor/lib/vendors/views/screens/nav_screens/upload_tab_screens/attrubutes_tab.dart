@@ -99,9 +99,17 @@ class _AttributesTabState extends State<AttributesTab> {
                 scrollDirection: Axis.horizontal,
                 itemCount: _sizedList.length,
                 itemBuilder: (context, index) {
-                  return Padding(
-                    padding: const EdgeInsets.all(4.0),
-                    child: ActionChip(label: Text(_sizedList[index])),
+                  return InkWell(
+                    onTap: (){
+                      setState(() {
+                      _sizedList.removeAt(index);
+                      _vendorProductController.getFormData(sizeList: _sizedList); 
+                      });
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.all(4.0),
+                      child: ActionChip(label: Text(_sizedList[index])),
+                    ),
                   );
                 }),
           )
