@@ -17,7 +17,9 @@ class ImageTab extends StatefulWidget {
   State<ImageTab> createState() => _ImageTabState();
 }
 
-class _ImageTabState extends State<ImageTab> {
+class _ImageTabState extends State<ImageTab> with AutomaticKeepAliveClientMixin {
+  @override
+  bool get wantKeepAlive => true;
   FirebaseFirestore _firestore = FirebaseFirestore.instance;
   FirebaseStorage _storage = FirebaseStorage.instance;
   final ImagePicker _picker = ImagePicker();
@@ -38,6 +40,8 @@ class _ImageTabState extends State<ImageTab> {
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
+
     VendorProductController _vendorProductController = Provider.of<VendorProductController>(context);
     return Padding(
       padding: const EdgeInsets.all(15.0),

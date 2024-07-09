@@ -10,13 +10,17 @@ class AttributesTab extends StatefulWidget {
   State<AttributesTab> createState() => _AttributesTabState();
 }
 
-class _AttributesTabState extends State<AttributesTab> {
+class _AttributesTabState extends State<AttributesTab> with AutomaticKeepAliveClientMixin {
+  @override
+  bool get wantKeepAlive => true;
   bool _addedSize = false;
   final TextEditingController _sizeTEC = TextEditingController();
   final List<String> _sizedList = [];
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
+
     VendorProductController _vendorProductController =
         Provider.of<VendorProductController>(context);
 
@@ -25,6 +29,12 @@ class _AttributesTabState extends State<AttributesTab> {
       child: Column(
         children: [
           TextFormField(
+            validator: (value) {
+              if (value!.isEmpty) {
+                return 'Please enter a Brand Name';
+              }
+              return null;
+            },
             onChanged: (value) {
               _vendorProductController.getFormData(brandName: value);
             },
@@ -39,6 +49,12 @@ class _AttributesTabState extends State<AttributesTab> {
                   child: SizedBox(
                 width: 150,
                 child: TextFormField(
+                  // validator: (value) {
+                  //   if(value!.isEmpty){
+                  //     return 'Please enter a Size of Product ';
+                  //   }
+                  //   return null;
+                  // },
                   controller: _sizeTEC,
                   decoration: InputDecoration(
                     labelText: 'Size',

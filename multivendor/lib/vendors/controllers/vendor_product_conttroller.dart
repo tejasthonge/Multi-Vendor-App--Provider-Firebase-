@@ -24,6 +24,7 @@ class VendorProductController extends ChangeNotifier{
     double? shippongCharge,
     String? brandName,
     List<String>? sizeList,
+    String? productId,
   }){
 
 

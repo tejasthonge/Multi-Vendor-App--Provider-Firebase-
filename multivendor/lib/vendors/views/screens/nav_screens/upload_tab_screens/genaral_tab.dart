@@ -12,7 +12,9 @@ class GeneralTab extends StatefulWidget {
   State<GeneralTab> createState() => _GeneralTabState();
 }
 
-class _GeneralTabState extends State<GeneralTab> {
+class _GeneralTabState extends State<GeneralTab> with AutomaticKeepAliveClientMixin{
+  @override
+  bool get wantKeepAlive => true;
   GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   final TextEditingController _productNameTEC = TextEditingController();
@@ -62,6 +64,8 @@ class _GeneralTabState extends State<GeneralTab> {
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
+
     VendorProductController _vendorProductController = Provider.of<VendorProductController>(context);
     return Padding(
       padding: EdgeInsets.all(15),

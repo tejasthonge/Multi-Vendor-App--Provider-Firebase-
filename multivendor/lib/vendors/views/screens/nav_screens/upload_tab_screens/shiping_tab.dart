@@ -11,12 +11,15 @@ class ShippingTab extends StatefulWidget {
   State<ShippingTab> createState() => _ShippingTabState();
 }
 
-class _ShippingTabState extends State<ShippingTab> {
+class _ShippingTabState extends State<ShippingTab> with AutomaticKeepAliveClientMixin{
+  @override
+  bool get wantKeepAlive => true;
   bool _chargeShipping = false;
   double _shippingCharge = 0;
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     VendorProductController _vendorProductController = Provider.of<VendorProductController>(context);
 
     return Column(
