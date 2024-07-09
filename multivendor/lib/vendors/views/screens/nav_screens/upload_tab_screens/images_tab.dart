@@ -89,15 +89,19 @@ class _ImageTabState extends State<ImageTab> with AutomaticKeepAliveClientMixin 
                       await value.ref.getDownloadURL().then((value) {
                         setState(() {
                           _imageUrlsList.add(value);
-                          _vendorProductController.getFormData(
-                              imagUrlList: _imageUrlsList);
-                          EasyLoading.showSuccess(
-                              "Images Uploadded Successesfully!");
-                          EasyLoading.dismiss();
+                         
                         });
                       });
                     });
                   }
+                  setState(() {
+                     _vendorProductController.getFormData(
+                              imagUrlList: _imageUrlsList);
+                        
+                      EasyLoading.showSuccess(
+                              "Images Uploadded Successesfully!");
+                          EasyLoading.dismiss();
+                  });
                 }
                 else{
                   _choosImage();

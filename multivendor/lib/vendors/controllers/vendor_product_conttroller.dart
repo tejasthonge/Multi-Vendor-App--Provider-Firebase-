@@ -61,6 +61,9 @@ class VendorProductController extends ChangeNotifier{
     if(sizeList!=null) {
       productData["sizeList"] =sizeList;
     }
+    if (productId !=null) {
+      productData["productId"] =productId;
+    }
     notifyListeners();
   }
 }
